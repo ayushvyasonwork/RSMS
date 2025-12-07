@@ -69,22 +69,22 @@ export async function fetchSales(query) {
     const arr = parseCSVParam(payment);
     if (arr) mongoQuery.paymentMethod = { $in: arr };
   }
-  if (startDate || endDate) {
-    mongoQuery.date = {};
-    if (startDate) {
-      const sd = new Date(startDate);
-      if (!isNaN(sd)) mongoQuery.date.$gte = sd;
-    }
-    if (endDate) {
-      const ed = new Date(endDate);
-      if (!isNaN(ed)) {
-        // include entire day
-        ed.setHours(23,59,59,999);
-        mongoQuery.date.$lte = ed;
-      }
-    }
-    if (Object.keys(mongoQuery.date).length === 0) delete mongoQuery.date;
+if (startDate || endDate) {
+  mongoQuery.date = {};
+  if (startDate) {
+    const sd = new Date(startDate);
+    if (!isNaN(sd)) mongoQuery.date.$gte = sd;
   }
+  if (endDate) {
+    const ed = new Date(endDate);
+    if (!isNaN(ed)) {
+      ed.setHours(23,59,59,999);
+      mongoQuery.date.$lte = ed;
+    }
+  }
+  if (Object.keys(mongoQuery.date).length === 0) delete mongoQuery.date;
+}
+
 
   // Build sort
   const sortMap = {

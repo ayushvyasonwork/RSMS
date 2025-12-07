@@ -24,6 +24,11 @@ export default function TopBar({ topFilters, filterValues }) {
     }
   };
 
+  const handleDateChange = (key, value) => {
+    // For date changes, dispatch setMultipleFilters with the date field
+    dispatch(setMultipleFilters({ [key]: value }));
+  };
+
   const handleSortChange = (field, order) => {
     dispatch(setSorting({ sortBy: field, sortOrder: order }));
   };
@@ -85,7 +90,7 @@ export default function TopBar({ topFilters, filterValues }) {
           label="Date"
           dateMode
           selectedDateRange={filterValues}
-          onChangeDate={(k, v) => handleToggleFilter(k, v)}
+          onChangeDate={handleDateChange}
         />
       </div>
 
