@@ -1,0 +1,8 @@
+/* src/styles/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* No custom CSS beyond tailwind imports */
+html, body, #__next { height: 100%; }
+body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background-color: #f3f4f6; }
