@@ -65,8 +65,8 @@ export default function TopBar({ topFilters, filterValues }) {
         <FiltersDropdown
           label="Age Range"
           options={["<20", "20-30", "30-40", "40+"]}
-          selected={filterValues.ageRange || []}
-          onToggle={(v) => handleToggleFilter("ageRange", v)}
+          selected={filterValues.ageRanges || []}
+          onToggle={(v) => handleToggleFilter("ageRanges", v)}
         />
         <FiltersDropdown
           label="Product Category"
